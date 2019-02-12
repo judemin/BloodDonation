@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "737707556625",
+    "firebase_url": "https://blooddonation-ae7e6.firebaseio.com",
+    "project_id": "blooddonation-ae7e6",
+    "storage_bucket": "blooddonation-ae7e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737707556625:android:3775375c6f717d83",
+        "android_client_info": {
+          "package_name": "edaebugo.blooddonation_pro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737707556625-tpm7gqjea3m3htg5tl95v4jna5s9g24j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1_LWNchGeuaV6aIMH0pa97Gqwh3PTIxM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
