@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupActivity">
+    tools:context=".SignupActivity"
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/tv_email"
@@ -73,10 +74,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginRight="123dp"
-        app:srcCompat="@drawable/Image" />
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
+        app:srcCompat="@drawable/image" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -96,6 +97,6 @@
         android:layout_marginStart="-116dp"
         android:layout_marginBottom="-3dp"
         android:layout_toEndOf="@+id/tv_email"
-        app:srcCompat="@drawable/selectImageView" />
+        app:srcCompat="@drawable/school_logo" />
 
 </RelativeLayout>

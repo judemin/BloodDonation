@@ -47,6 +47,7 @@ public class SignupActivity extends AppCompatActivity {
         email = editTextEmail.getText().toString();
         password = editTextPassword.getText().toString();
 
+        //Toast.makeText(getApplicationContext(),"회원가입",Toast.LENGTH_LONG);
         Log.d("",email + " " + password);
 
         if(isValidEmail() && isValidPasswd()) {
