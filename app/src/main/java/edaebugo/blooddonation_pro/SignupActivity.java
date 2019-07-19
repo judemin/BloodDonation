@@ -1,5 +1,6 @@
 package edaebugo.blooddonation_pro;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -39,8 +40,15 @@ public class SignupActivity extends AppCompatActivity {
         // 파이어베이스 인증 객체 선언
         firebaseAuth = FirebaseAuth.getInstance();
 
+        //Toast.makeText(getApplicationContext(),firebaseAuth.getInstance().toString(),Toast.LENGTH_LONG);
+
         editTextEmail = findViewById(R.id.et_eamil);
         editTextPassword = findViewById(R.id.et_password);
+    }
+
+    public void testSwitch(){ //엑티비티 스위치
+        Intent activityChangeIntent = new Intent(SignupActivity.this, MainPage.class);
+        SignupActivity.this.startActivity(activityChangeIntent);
     }
 
     public void singUp(View view) {

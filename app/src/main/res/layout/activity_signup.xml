@@ -99,4 +99,14 @@
         android:layout_toEndOf="@+id/tv_email"
         app:srcCompat="@drawable/school_logo" />
 
+    <Button
+        android:id="@+id/testButton"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="13dp"
+        android:onClick="testSwitch"
+        android:text="Activity이동(Test)" />
+
 </RelativeLayout>
