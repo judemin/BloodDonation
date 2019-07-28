@@ -2,8 +2,6 @@ package edaebugo.blooddonation_pro;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -16,6 +14,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Pattern;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -46,7 +47,7 @@ public class SignupActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.et_password);
     }
 
-    public void testSwitch(){ //엑티비티 스위치
+    public void testSwitch(View view){ //엑티비티 스위치
         Intent activityChangeIntent = new Intent(SignupActivity.this, MainPage.class);
         SignupActivity.this.startActivity(activityChangeIntent);
     }
@@ -61,6 +62,9 @@ public class SignupActivity extends AppCompatActivity {
         if(isValidEmail() && isValidPasswd()) {
             createUser(email, password);
         }
+        else{
+            Toast.makeText(getApplicationContext(),"Invalid Input",Toast.LENGTH_LONG);
+        }
     }
 
     public void signIn(View view) {
@@ -69,6 +73,9 @@ public class SignupActivity extends AppCompatActivity {
 
         if(isValidEmail() && isValidPasswd()) {
             loginUser(email, password);
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Invalid Input",Toast.LENGTH_LONG);
         }
     }
 
@@ -133,5 +140,3 @@ public class SignupActivity extends AppCompatActivity {
                 });
     }
 }
-
-//from : https://github.com/aiex1234/AndroidFirebaseLoginExample
