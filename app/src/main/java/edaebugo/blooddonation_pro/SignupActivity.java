@@ -49,19 +49,21 @@ public class SignupActivity extends AppCompatActivity {
 
     public void testSwitch(View view){ //엑티비티 스위치
         Intent activityChangeIntent = new Intent(SignupActivity.this, MainPage.class);
-        activityChangeIntent.putExtra("tmp","Value from signupActivity");
-        startActivity(activityChangeIntent);
-        finish();
+        SignupActivity.this.startActivity(activityChangeIntent);
     }
 
     public void singUp(View view) {
         email = editTextEmail.getText().toString();
         password = editTextPassword.getText().toString();
 
+        //Toast.makeText(getApplicationContext(),"회원가입",Toast.LENGTH_LONG);
         Log.d("",email + " " + password);
 
         if(isValidEmail() && isValidPasswd()) {
             createUser(email, password);
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Invalid Input",Toast.LENGTH_LONG);
         }
     }
 
@@ -72,17 +74,18 @@ public class SignupActivity extends AppCompatActivity {
         if(isValidEmail() && isValidPasswd()) {
             loginUser(email, password);
         }
+        else{
+            Toast.makeText(getApplicationContext(),"Invalid Input",Toast.LENGTH_LONG);
+        }
     }
 
     // 이메일 유효성 검사
     private boolean isValidEmail() {
         if (email.isEmpty()) {
             // 이메일 공백
-            Toast.makeText(getApplicationContext(),"Email empty",Toast.LENGTH_LONG).show();
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             // 이메일 형식 불일치
-            Toast.makeText(getApplicationContext(),"Invalid Email",Toast.LENGTH_LONG).show();
             return false;
         } else {
             return true;
@@ -93,11 +96,9 @@ public class SignupActivity extends AppCompatActivity {
     private boolean isValidPasswd() {
         if (password.isEmpty()) {
             // 비밀번호 공백
-            Toast.makeText(getApplicationContext(),"Empty password",Toast.LENGTH_LONG).show();
             return false;
         } else if (!PASSWORD_PATTERN.matcher(password).matches()) {
             // 비밀번호 형식 불일치
-            Toast.makeText(getApplicationContext(),"Invalid Password",Toast.LENGTH_LONG).show();
             return false;
         } else {
             return true;
