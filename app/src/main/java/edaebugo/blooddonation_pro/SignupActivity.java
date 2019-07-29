@@ -49,7 +49,7 @@ public class SignupActivity extends AppCompatActivity {
 
     public void testSwitch(View view){ //엑티비티 스위치
         Intent activityChangeIntent = new Intent(SignupActivity.this, MainPage.class);
-        activityChangeIntent.putExtra("tmp","Value from signupActivity");
+        activityChangeIntent.putExtra("tmp","" +  editTextEmail.getText().toString());
         startActivity(activityChangeIntent);
         finish();
     }
