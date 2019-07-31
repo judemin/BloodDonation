@@ -2,7 +2,6 @@ package edaebugo.blooddonation_pro;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -51,18 +50,12 @@ public class SignupActivity extends AppCompatActivity {
         Intent activityChangeIntent = new Intent(SignupActivity.this, MainPage.class);
         activityChangeIntent.putExtra("tmp","" +  editTextEmail.getText().toString());
         startActivity(activityChangeIntent);
-        finish();
+        //finish();
     }
 
     public void singUp(View view) {
-        email = editTextEmail.getText().toString();
-        password = editTextPassword.getText().toString();
-
-        Log.d("",email + " " + password);
-
-        if(isValidEmail() && isValidPasswd()) {
-            createUser(email, password);
-        }
+        Intent activityChangeIntent = new Intent(SignupActivity.this, SignPage.class);
+        startActivity(activityChangeIntent);
     }
 
     public void signIn(View view) {
@@ -78,11 +71,11 @@ public class SignupActivity extends AppCompatActivity {
     private boolean isValidEmail() {
         if (email.isEmpty()) {
             // 이메일 공백
-            Toast.makeText(getApplicationContext(),"Email empty",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"이메일을 입력하세요",Toast.LENGTH_LONG).show();
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             // 이메일 형식 불일치
-            Toast.makeText(getApplicationContext(),"Invalid Email",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"올바르지 않은 이메일입니다",Toast.LENGTH_LONG).show();
             return false;
         } else {
             return true;
@@ -93,32 +86,15 @@ public class SignupActivity extends AppCompatActivity {
     private boolean isValidPasswd() {
         if (password.isEmpty()) {
             // 비밀번호 공백
-            Toast.makeText(getApplicationContext(),"Empty password",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"비밀번호를 입력하세요",Toast.LENGTH_LONG).show();
             return false;
         } else if (!PASSWORD_PATTERN.matcher(password).matches()) {
             // 비밀번호 형식 불일치
-            Toast.makeText(getApplicationContext(),"Invalid Password",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"올바르지 않은 비밀번호입니다",Toast.LENGTH_LONG).show();
             return false;
         } else {
             return true;
         }
-    }
-
-    // 회원가입
-    private void createUser(String email, String password) {
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // 회원가입 성공
-                            Toast.makeText(SignupActivity.this, R.string.success_signup, Toast.LENGTH_SHORT).show();
-                        } else {
-                            // 회원가입 실패
-                            Toast.makeText(SignupActivity.this, R.string.failed_signup, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
     }
 
     // 로그인
@@ -130,10 +106,12 @@ public class SignupActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // 로그인 성공
-                            Toast.makeText(SignupActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(SignupActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
                         } else {
                             // 로그인 실패
-                            Toast.makeText(SignupActivity.this, R.string.failed_login, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(SignupActivity.this, R.string.failed_login, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

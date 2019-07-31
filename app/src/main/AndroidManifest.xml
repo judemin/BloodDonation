@@ -12,6 +12,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         tools:replace="android:appComponentFactory"
         android:appComponentFactory="whateverString">
+        <activity android:name=".SignPage"/>
         <activity android:name=".MainPage"/>
         <activity android:name=".SignupActivity">
             <intent-filter>
