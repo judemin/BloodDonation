@@ -15,19 +15,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainPage  extends AppCompatActivity{
     int cnt = 0;
-    public String param;
+    public String id;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
         Intent myIntent = getIntent();
-        param = myIntent.getStringExtra("tmp");
-        //Toast.makeText(getApplicationContext(),param,Toast.LENGTH_LONG).show();
+        id = myIntent.getStringExtra("id");
+        Toast.makeText(getApplicationContext(),"Id from login : " + id,Toast.LENGTH_LONG).show();
     }
 
     public void cntPlus(View view){
         cnt++;
-        FirebaseDatabase.getInstance().getReference().push().setValue("" + param + cnt);
+        FirebaseDatabase.getInstance().getReference().push().setValue("" + id + cnt);
         firebaseDB();
     }
 

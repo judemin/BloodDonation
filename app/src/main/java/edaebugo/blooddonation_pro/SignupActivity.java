@@ -7,14 +7,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Pattern;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SignupActivity extends AppCompatActivity {
@@ -44,13 +40,6 @@ public class SignupActivity extends AppCompatActivity {
 
         editTextEmail = findViewById(R.id.et_eamil);
         editTextPassword = findViewById(R.id.et_password);
-    }
-
-    public void testSwitch(View view){ //엑티비티 스위치
-        Intent activityChangeIntent = new Intent(SignupActivity.this, MainPage.class);
-        activityChangeIntent.putExtra("tmp","" +  editTextEmail.getText().toString());
-        startActivity(activityChangeIntent);
-        //finish();
     }
 
     public void singUp(View view) {
@@ -100,20 +89,13 @@ public class SignupActivity extends AppCompatActivity {
     // 로그인
     private void loginUser(String email, String password)
     {
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // 로그인 성공
-                            Toast.makeText(SignupActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(SignupActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
-                        } else {
-                            // 로그인 실패
-                            Toast.makeText(SignupActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(SignupActivity.this, R.string.failed_login, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        if(email.equals(password)){ //로그인 성공
+            Intent activityChangeIntent = new Intent(SignupActivity.this, MainPage.class);
+            activityChangeIntent.putExtra("id",email);
+            startActivity(activityChangeIntent);
+            finish();
+        }
+        else //로그인 실패
+            Toast.makeText(getApplicationContext(),"이메일과 비밀번호를 확인하세요",Toast.LENGTH_LONG).show();
     }
 }

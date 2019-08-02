@@ -49,22 +49,22 @@
         android:layout_below="@+id/et_password">
 
         <Button
-            android:id="@+id/btn_signUp"
-            android:text="@string/signup"
-            android:onClick="singUp"
+            android:id="@+id/btn_signIp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
             android:layout_weight="1"
-            android:layout_marginLeft="50dp"/>
+            android:onClick="signIn"
+            android:text="@string/signin" />
 
         <Button
-            android:id="@+id/btn_signIn"
-            android:text="@string/signin"
-            android:onClick="signIn"
+            android:id="@+id/btn_signn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
             android:layout_weight="1"
-            android:layout_marginRight="50dp"/>
+            android:onClick="singUp"
+            android:text="@string/signup" />
 
     </LinearLayout>
 
@@ -88,7 +88,7 @@
         android:layout_marginEnd="-120dp"
         android:layout_marginBottom="19dp"
         android:layout_toStartOf="@+id/tv_email"
-        app:srcCompat="@drawable/ci" />
+        app:srcCompat="@drawable/school_logo" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -98,17 +98,6 @@
         android:layout_marginStart="-116dp"
         android:layout_marginBottom="-3dp"
         android:layout_toEndOf="@+id/tv_email"
-        app:srcCompat="@drawable/school_logo" />
-
-    <Button
-        android:id="@+id/testButton"
-        android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="14dp"
-        android:onClick="testSwitch"
-        android:text="Test" />
+        app:srcCompat="@drawable/ci" />
 
 </RelativeLayout>
