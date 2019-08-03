@@ -8,6 +8,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.regex.Pattern;
 
@@ -89,6 +95,53 @@ public class SignupActivity extends AppCompatActivity {
     // 로그인
     private void loginUser(String email, String password)
     {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+
+        //특정 이메일 이용 -> 데이터 가져오기
+        Query myTopPostsQuery = databaseReference.child("users").child(email);
+        myTopPostsQuery.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                SignPage.UserData userData = dataSnapshot.getValue(SignPage.UserData.class);  // chatData를 가져오고
+                Toast.makeText(getApplicationContext(),userData.getId(),Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) { }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) { }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        });
+
+
+        //가장 최근의 데이터만 가져옴
+        databaseReference.child("users").addChildEventListener(new ChildEventListener() {  // message는 child의 이벤트를 수신합니다.
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                SignPage.UserData userData = dataSnapshot.getValue(SignPage.UserData.class);  // chatData를 가져오고
+                Toast.makeText(getApplicationContext(),userData.getId(),Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) { }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) { }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        });
+
         if(email.equals(password)){ //로그인 성공
             Intent activityChangeIntent = new Intent(SignupActivity.this, MainPage.class);
             activityChangeIntent.putExtra("id",email);

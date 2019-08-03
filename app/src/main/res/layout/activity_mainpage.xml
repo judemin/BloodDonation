@@ -7,14 +7,4 @@
     tools:context=".MainPage"
     android:background="#FFFFFF">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="69dp"
-        android:layout_marginEnd="131dp"
-        android:onClick="cntPlus"
-        android:text="Database_Test" />
 </RelativeLayout>
