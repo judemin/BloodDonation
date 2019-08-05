@@ -1,7 +1,6 @@
 package edaebugo.blooddonation_pro;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -19,9 +18,11 @@ public class SignPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signpage);
 
-        UserData tmpUserdata = new UserData("judemin2087@naver.com", "12345", "민상연", "O", "01032320437");
+        //데이터베이스에 데이터 입력
+        /*
+        UserData tmpUserdata = new UserData("a@a.com", "12345", "ASDF", "A", "01012345678");
         databaseReference.child("users").push().setValue(tmpUserdata);
-        Toast.makeText(getApplicationContext(),"Child added " + tmpUserdata.getId(),Toast.LENGTH_LONG);
+        */
     }
 
     public static class UserData {
