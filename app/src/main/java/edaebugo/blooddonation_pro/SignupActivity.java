@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SignupActivity extends AppCompatActivity {
 
+    boolean isLogin = false;
     // 비밀번호 정규식
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9!@.#$%^&*?_~]{4,16}$");
 
@@ -95,6 +96,10 @@ public class SignupActivity extends AppCompatActivity {
 
     // 로그인
     private void loginUser(String email, String password) {
+        if(isLogin == true)
+            return;
+
+        isLogin = true;
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference();
 
@@ -113,6 +118,7 @@ public class SignupActivity extends AppCompatActivity {
                         activityChangeIntent.putExtra("name", post.getName());
                         startActivity(activityChangeIntent);
                         finish();
+                        return;
                     }
                 }
                 Toast.makeText(getApplicationContext(), "이메일과 비밀번호를 확인하세요", Toast.LENGTH_LONG).show();
@@ -122,5 +128,6 @@ public class SignupActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+        isLogin = false;
     }
 }
