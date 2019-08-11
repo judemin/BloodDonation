@@ -7,4 +7,15 @@
     tools:context=".MainPage"
     android:background="#FFFFFF">
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="17dp"
+        android:onClick="uploadPage"
+        android:text="업로드 페이지 이동" />
+
 </RelativeLayout>
