@@ -5,24 +5,25 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/uploadButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="434dp"
+        android:layout_marginTop="460dp"
         android:onClick="upload"
-        android:text="헌혈증 업로드" />
+        android:text="업로드" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/ocrStartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/uploadButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="83dp"
-        android:onClick="takePicture"
-        android:text="헌혈증 찍기" />
+        android:layout_marginStart="-13dp"
+        android:layout_marginBottom="127dp"
+        android:onClick="startOCR"
+        android:text="헌혈증 인식하기" />
 
     <TextView
         android:id="@+id/testText"
@@ -41,5 +42,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="118dp"
         app:srcCompat="@drawable/image" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/uploadButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-33dp"
+        android:layout_marginBottom="69dp"
+        android:onClick="startCam2"
+        android:text="Camera2 API 테스트" />
 
 </RelativeLayout>
