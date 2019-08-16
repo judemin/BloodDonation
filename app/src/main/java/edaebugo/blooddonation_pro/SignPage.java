@@ -1,12 +1,21 @@
 package edaebugo.blooddonation_pro;
 
+import android.app.Activity;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
+import com.google.android.material.chip.ChipGroup;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Random;
 
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SignPage extends AppCompatActivity {
@@ -17,6 +26,20 @@ public class SignPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signpage);
+
+        Spinner Spinner = (Spinner)findViewById(R.id.spinner);
+        ArrayAdapter Adapter = ArrayAdapter.createFromResource(this,
+                R.array.blood, android.R.layout.simple_spinner_item);
+        Spinner.setAdapter(Adapter);
+
+        ChipGroup choiceChipGroup = findViewById(R.id.choice_chip_group);
+        choiceChipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup chipGroup, @IdRes int i) {
+                Log.i("ChipGroup","" + i);
+            }
+        });
+
 
         //데이터베이스에 데이터 입력
         /*

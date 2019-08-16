@@ -18,11 +18,12 @@
 
     <EditText
         android:id="@+id/et_eamil"
-        android:layout_below="@id/tv_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_email"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"/>
+        android:layout_marginRight="50dp"
+        android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/tv_password"
