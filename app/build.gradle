@@ -43,6 +43,8 @@ dependencies {
     //implementation 'com.google.firebase:firebase-auth:16.0.1:15.0.0'
     implementation 'com.google.firebase:firebase-auth:17.0.0'
     implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.google.firebase:firebase-database:18.0.1'
     implementation project(':opencv')
 
