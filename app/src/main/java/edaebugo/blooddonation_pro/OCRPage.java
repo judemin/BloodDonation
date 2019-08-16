@@ -7,6 +7,7 @@ import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -50,26 +51,33 @@ public class OCRPage extends AppCompatActivity {
         });
 
         tessBaseAPI = new TessBaseAPI();
-        String dir = getFilesDir() + "/assets";
-        //Log.e("","" + dir);
+        String dir = getFilesDir() + "";
+        Log.e("OCRPage","" + dir);
         if(checkLanguageFile(dir+"/tessdata")) {
-            //Log.e("","Initiating tessBaseAPI");
+            Log.e("OCRPage","" + dir);
+            Log.e("OCRPage","Initiating tessBaseAPI");
             tessBaseAPI.init(dir, "eng");
         }
+        else
+            Log.e("OCRPage","Check LanguageFile Failed");
     }
 
     boolean checkLanguageFile(String dir)
     {
         File file = new File(dir);
-        if(!file.exists() && file.mkdirs())
+        if(!file.exists() && file.mkdirs()) {
             createFiles(dir);
+            Log.e("OCRPage_checkFile","Created Fle Directory");
+        }
         else if(file.exists()){
             String filePath = dir + "/eng.traineddata";
             File langDataFile = new File(filePath);
             if(!langDataFile.exists())
                 createFiles(dir);
+            Log.e("OCRPage_checkFile","File Exists");
+            return true;
         }
-        return true;
+        return false;
     }
 
     private void createFiles(String dir)
@@ -94,6 +102,7 @@ public class OCRPage extends AppCompatActivity {
             inputStream.close();
             outputStream.flush();
             outputStream.close();
+            Log.e("OCRPage_CreateFile","eng.traineddate IOStream Completed");
         }catch (IOException e) {
             e.printStackTrace();
         }

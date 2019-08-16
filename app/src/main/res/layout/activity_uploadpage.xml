@@ -43,15 +43,4 @@
         android:layout_marginTop="118dp"
         app:srcCompat="@drawable/image" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/uploadButton"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-33dp"
-        android:layout_marginBottom="69dp"
-        android:onClick="startCam2"
-        android:text="Camera2 API 테스트" />
-
 </RelativeLayout>

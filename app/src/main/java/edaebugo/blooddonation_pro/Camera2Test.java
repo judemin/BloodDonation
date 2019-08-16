@@ -36,7 +36,7 @@ public class Camera2Test extends AppCompatActivity {
 
     Activity mainActivity = this;
 
-    private static final String TAG = "MAINACTIVITY";
+    private static final String TAG = "Camera2Test";
 
     static final int REQUEST_CAMERA = 1;
 
