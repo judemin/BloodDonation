@@ -74,7 +74,7 @@ public class OCRPage extends AppCompatActivity {
             File langDataFile = new File(filePath);
             if(!langDataFile.exists())
                 createFiles(dir);
-            Log.e("OCRPage_checkFile","File Exists");
+            Log.e("OCRPage_checkLanFile","" + dir + " File Directory Exists");
             return true;
         }
         return false;
@@ -88,9 +88,13 @@ public class OCRPage extends AppCompatActivity {
         OutputStream outputStream = null;
 
         try {
+            Log.e("OCRPage_CreateFile","Opening InputStream");
+
             inputStream = assetMgr.open("eng.traineddata");
 
             String destFile = dir + "/eng.traineddata";
+
+            Log.e("OCRPage_CreateFile","Opening OutputStream");
 
             outputStream = new FileOutputStream(destFile);
 

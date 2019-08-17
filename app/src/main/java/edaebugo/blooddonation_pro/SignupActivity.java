@@ -126,6 +126,8 @@ public class SignupActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                Log.e("SignupActivity","" + databaseError.toString());
+                Toast.makeText(getApplicationContext(), "네트워크를 확인해주세요", Toast.LENGTH_LONG).show();
             }
         });
         isLogin = false;

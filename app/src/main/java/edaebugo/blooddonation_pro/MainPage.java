@@ -17,7 +17,7 @@ public class MainPage  extends AppCompatActivity{
         Intent myIntent = getIntent();
         id = myIntent.getStringExtra("id");
         name = myIntent.getStringExtra("name");
-        Toast.makeText(getApplicationContext(),"로그인 성공\n환영합니다 " + name + "님",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"환영합니다 " + name + "님",Toast.LENGTH_LONG).show();
     }
 
     public void uploadPage(View view){
