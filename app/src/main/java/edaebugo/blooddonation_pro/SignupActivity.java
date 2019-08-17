@@ -48,6 +48,11 @@ public class SignupActivity extends AppCompatActivity {
 
         editTextEmail = findViewById(R.id.et_eamil);
         editTextPassword = findViewById(R.id.et_password);
+
+        //For Test
+        editTextEmail.setText("judemin2087@naver.com");
+        editTextPassword.setText("12345");
+        //
     }
 
     public void singUp(View view) {
@@ -62,6 +67,11 @@ public class SignupActivity extends AppCompatActivity {
         if(isValidEmail() && isValidPasswd()) {
             loginUser(email, password);
         }
+    }
+
+    public void devInf(View view) {
+        Intent activityChangeIntent = new Intent(SignupActivity.this, devInfo.class);
+        startActivity(activityChangeIntent);
     }
 
     // 이메일 유효성 검사

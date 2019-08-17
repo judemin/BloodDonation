@@ -33,6 +33,8 @@ public class OCRPage extends AppCompatActivity {
     CameraSurfaceView surfaceView;
     TextView textView;
 
+    public static String ocrData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +62,12 @@ public class OCRPage extends AppCompatActivity {
         }
         else
             Log.e("OCRPage","Check LanguageFile Failed");
+    }
+
+    public void inputOCRData(View view){
+        Log.e("OCRPage","" + ocrData);
+        UploadPage.uploadPageBundle.putString("ocrData",ocrData);
+        finish();
     }
 
     boolean checkLanguageFile(String dir)
@@ -159,6 +167,7 @@ public class OCRPage extends AppCompatActivity {
 
         protected void onPostExecute(String result) {
             textView.setText(result);
+            ocrData = result;
             Toast.makeText(OCRPage.this, ""+result, Toast.LENGTH_LONG).show();
 
             button.setEnabled(true);

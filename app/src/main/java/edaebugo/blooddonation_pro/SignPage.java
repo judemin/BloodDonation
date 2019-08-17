@@ -86,7 +86,7 @@ public class SignPage extends AppCompatActivity {
         myTopPostsQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                Log.e("Count ", "" + snapshot.getChildrenCount());
+                Log.e("users count", "" + snapshot.getChildrenCount());
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     SignPage.UserData post = postSnapshot.getValue(SignPage.UserData.class);

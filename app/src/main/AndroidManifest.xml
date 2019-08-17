@@ -31,6 +31,7 @@
         tools:replace="android:appComponentFactory"
         android:appComponentFactory="whateverString">
         <activity android:name=".UploadPage"/>
+        <activity android:name=".devInfo"/>
         <activity android:name=".Camera2Test"/>
         <activity android:name=".OCRPage"/>
         <activity android:name=".SignPage"/>

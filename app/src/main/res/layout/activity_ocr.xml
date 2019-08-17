@@ -33,12 +33,19 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="match_parent"
+            android:layout_width="188dp"
             android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="190dp"
             android:layout_marginRight="16dp"
-            android:text="텍스트 인식" />
+            android:text="헌혈증 인식" />
+
+        <Button
+            android:id="@+id/inputOCRInfo"
+            android:layout_width="181dp"
+            android:layout_height="wrap_content"
+            android:onClick="inputOCRData"
+            android:text="입력하기" />
+
     </FrameLayout>
 
     <FrameLayout
@@ -60,7 +67,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="여기에 텍스트 인식 결과가 표시됩니다."
+                    android:text="여기에 헌혈증 인식 결과가 표시됩니다."
                     android:textSize="18sp" />
             </LinearLayout>
         </ScrollView>
