@@ -26,8 +26,15 @@ public class MainPage  extends AppCompatActivity{
         activityChangeIntent.putExtra("name", name);
         startActivity(activityChangeIntent);
     }
+  
     public  void Mypage(View view){
         Intent activityChangeIntent = new Intent(MainPage.this, Bloodcardcs.class);
+    }
+
+    public void uploadBill(View view){
+        Intent activityChangeIntent = new Intent(MainPage.this, UploadBill.class);
+        activityChangeIntent.putExtra("id", id);
+        activityChangeIntent.putExtra("name", name);
         startActivity(activityChangeIntent);
     }
 }
