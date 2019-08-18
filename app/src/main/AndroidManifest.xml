@@ -24,13 +24,10 @@
 
     <application xmlns:tools="http://schemas.android.com/tools"
         android:allowBackup="true"
-        android:appComponentFactory="whateverString"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        xmlns:tools="http://schemas.android.com/tools"
         tools:replace="android:appComponentFactory"
         android:appComponentFactory="whateverString">
         <activity android:name=".UploadPage"/>

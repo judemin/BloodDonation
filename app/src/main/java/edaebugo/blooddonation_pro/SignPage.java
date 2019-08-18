@@ -1,9 +1,11 @@
 package edaebugo.blooddonation_pro;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +30,9 @@ public class SignPage extends AppCompatActivity {
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
 
     private String newUserID = "";
+
+    private String verifyCode = "";
+    private String veriInput = "";
 
     private String name = "";
     private String email = "";
@@ -58,6 +63,8 @@ public class SignPage extends AppCompatActivity {
                 Log.i("ChipGroup","" + i);
             }
         });
+        Random generator = new Random();
+        verifyCode = "" + generator.nextInt();
     }
 
     public void signInpa(View view){
@@ -70,10 +77,18 @@ public class SignPage extends AppCompatActivity {
         password = ((TextView)findViewById(R.id.in_password)).getText().toString();
         phoneNum = ((TextView)findViewById(R.id.in_phone)).getText().toString();
         bloodType = spinner.getSelectedItem().toString();
+        veriInput = ((TextView)findViewById(R.id.in_verification)).getText().toString();
+
         Log.e("SignPage","" + email  + " " + bloodType + " " + rhType);
 
         if(isEmpty() == true) {
             Toast.makeText(getApplicationContext(), "정보를 모두 입력해주세요", Toast.LENGTH_LONG).show();
+            isProcess = false;
+            return;
+        }
+
+        if(!veriInput.equals(verifyCode)){
+            Toast.makeText(getApplicationContext(), "인증코드가 알맞지 않습니다", Toast.LENGTH_LONG).show();
             isProcess = false;
             return;
         }
@@ -115,6 +130,33 @@ public class SignPage extends AppCompatActivity {
         newUserID = tmpUserdata.getId();
         databaseReference.child("users").push().setValue(tmpUserdata);
         finish();
+    }
+
+    public void sendEmail(View view){
+        ((Button)findViewById(R.id.veriButton)).setClickable(false);
+        email = ((TextView)findViewById(R.id.in_email)).getText().toString();
+
+        Random generator = new Random();
+        verifyCode = "" + generator.nextInt();
+
+        if(email.isEmpty()){
+            Toast.makeText(getApplicationContext(), "이메일을 입력해주세요", Toast.LENGTH_LONG).show();
+            ((Button)findViewById(R.id.veriButton)).setClickable(true);
+            return;
+        }
+
+        email = ((TextView)findViewById(R.id.in_email)).getText().toString();
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"" + email});
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "BloodDonation Verification");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" +
+                "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" +
+                "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + verifyCode);
+        emailIntent.setType("message/rfc822");
+        startActivity(Intent.createChooser(emailIntent, "Choose an Email client :"));
+
+        ((TextView)findViewById(R.id.in_verification)).setText("메일을 확인하고 끝까지 내려주세요");
+        ((Button)findViewById(R.id.veriButton)).setClickable(true);
     }
 
     public boolean isEmpty(){

@@ -21,6 +21,19 @@
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
+    <TextView
+        android:id="@+id/verification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="396dp"
+        android:text="인증코드"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
     <EditText
         android:id="@+id/in_name"
         android:layout_width="226dp"
@@ -29,6 +42,18 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="104dp"
         android:layout_marginTop="98dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/in_verification"
+        android:layout_width="226dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="387dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="14sp" />
@@ -164,12 +189,23 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/choice_chip_group"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="72dp"
         android:fontFamily="cursive"
-        android:text="가입하기"
         android:onClick="signInpa"
+        android:text="가입하기"
         android:textAlignment="center"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/veriButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Email"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="cursive"
+        android:onClick="sendEmail"
+        android:text="인증코드발송"
+        android:textAlignment="center"
+        android:textSize="14sp" />
 </RelativeLayout>

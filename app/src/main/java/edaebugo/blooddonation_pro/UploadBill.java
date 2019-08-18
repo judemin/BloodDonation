@@ -48,7 +48,7 @@ public class UploadBill  extends AppCompatActivity {
     public void uploadBloodBill(View view){
         if(isProcess == true)
             return;
-        isProcess = false;
+        isProcess = true;
 
         billID =  ((TextView)findViewById(R.id.in_billID)).getText().toString();
 
@@ -72,7 +72,7 @@ public class UploadBill  extends AppCompatActivity {
 
                         String strColor = "#FF0000";
                         ((TextView)findViewById(R.id.in_billID)).setTextColor(Color.parseColor(strColor));
-                        Log.e("UploadPage","BillCode Exists " + post.getBillBarcode());
+                        Log.e("UploadBillPage","BillCode Exists " + post.getBillBarcode());
                         isProcess = false;
                         return;
                     }
@@ -89,7 +89,7 @@ public class UploadBill  extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e("UploadPage","" + databaseError.toString());
+                Log.e("UploadBillPage","" + databaseError.toString());
                 Toast.makeText(getApplicationContext(), "네트워크를 확인해주세요", Toast.LENGTH_LONG).show();
             }
         });
@@ -104,7 +104,7 @@ public class UploadBill  extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("UploadBill","OnResume");
+        Log.e("UploadBillPage","OnResume");
         billID = uploadBillBundle.getString("ocrData");
         ((TextView)findViewById(R.id.in_billID)).setText(billID);
         Bitmap bitmapimage = uploadBillBundle.getParcelable("BitmapImage");
