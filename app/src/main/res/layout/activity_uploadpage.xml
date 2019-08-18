@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="37dp"
         android:layout_marginTop="153dp"
-        android:text="메세지"
+        android:text="내용"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="16sp" />

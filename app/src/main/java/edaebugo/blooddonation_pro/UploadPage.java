@@ -27,6 +27,7 @@ public class UploadPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("요청글 작성");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uploadpage);
 

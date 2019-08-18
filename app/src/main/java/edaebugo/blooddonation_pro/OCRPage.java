@@ -36,6 +36,7 @@ public class OCRPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("헌혈증 자동인식");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ocr);
 

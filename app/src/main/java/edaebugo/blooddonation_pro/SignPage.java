@@ -43,6 +43,7 @@ public class SignPage extends AppCompatActivity {
     Spinner spinner;
 
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("회원가입");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signpage);
 

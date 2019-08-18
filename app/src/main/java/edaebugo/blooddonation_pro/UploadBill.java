@@ -35,6 +35,7 @@ public class UploadBill  extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("헌혈증 업로드");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uploadbill);
 
@@ -67,12 +68,12 @@ public class UploadBill  extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     UploadBill.billData post = postSnapshot.getValue(UploadBill.billData.class);
 
-                    if (billID.equals(post.getBillBarcode())) {
+                    if (billID.equals(post.getBillID())) {
                         ((TextView)findViewById(R.id.in_billID)).setText("이미 존재하는 헌혈증입니다");
 
                         String strColor = "#FF0000";
                         ((TextView)findViewById(R.id.in_billID)).setTextColor(Color.parseColor(strColor));
-                        Log.e("UploadBillPage","BillCode Exists " + post.getBillBarcode());
+                        Log.e("UploadBillPage","BillCode Exists " + post.getBillID());
                         isProcess = false;
                         return;
                     }
@@ -132,7 +133,7 @@ public class UploadBill  extends AppCompatActivity {
             billID = bill;
         }
 
-        public String getID(){
+        public String getUploaderID(){
             return uploaderID;
         }
 
@@ -140,7 +141,7 @@ public class UploadBill  extends AppCompatActivity {
             return uploader;
         }
 
-        public String getBillBarcode(){
+        public String getBillID(){
             return billID;
         }
 

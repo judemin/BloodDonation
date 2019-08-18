@@ -12,6 +12,7 @@ public class devInfo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("개발자들");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_devinfo);
 
