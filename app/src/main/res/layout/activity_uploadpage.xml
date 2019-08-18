@@ -12,7 +12,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="219dp"
+        android:layout_marginTop="153dp"
         android:text="메세지"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -25,34 +25,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="103dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="144dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/billid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="107dp"
-        android:text="헌혈증ID"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
-
-    <EditText
-        android:id="@+id/in_billID"
-        android:layout_width="226dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="98dp"
-        android:ems="10"
-        android:inputType="textPersonName"
         android:textSize="14sp" />
 
     <TextView
@@ -62,7 +37,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="99dp"
         android:text="제목"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -75,7 +50,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="101dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="90dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:textSize="14sp" />
@@ -86,21 +61,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="306dp"
         android:onClick="upload"
         android:text="업로드" />
-
-    <Button
-        android:id="@+id/ocrStartButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/uploadButton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="400dp"
-        android:onClick="startOCR"
-        android:text="헌혈증 인식하기" />
 
 </RelativeLayout>

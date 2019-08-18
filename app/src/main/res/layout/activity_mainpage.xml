@@ -8,14 +8,25 @@
     android:background="#FFFFFF">
 
     <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="6dp"
+        android:onClick="uploadBill"
+        android:text="헌혈증 등록" />
+
+    <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="232dp"
+        android:layout_marginBottom="10dp"
         android:onClick="uploadPage"
-        android:text="헌혈증 양도하기" />
+        android:text="헌혈증 요청" />
 
 </RelativeLayout>
