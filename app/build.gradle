@@ -50,6 +50,8 @@ dependencies {
     implementation project(':opencv')
 
     implementation 'com.rmtheis:tess-two:9.0.0'
+    implementation 'com.android.support:support-v4:28.1.0'
+    implementation 'com.android.support:design:28.1.0'
 }
 apply plugin: 'com.google.gms.google-services'
 //

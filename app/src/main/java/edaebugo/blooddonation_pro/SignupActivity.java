@@ -60,6 +60,7 @@ public class SignupActivity extends AppCompatActivity {
         startActivity(activityChangeIntent);
     }
 
+
     public void signIn(View view) {
         email = editTextEmail.getText().toString();
         password = editTextPassword.getText().toString();
