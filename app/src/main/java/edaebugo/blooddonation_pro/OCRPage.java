@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.googlecode.tesseract.android.TessBaseAPI;
 
@@ -37,6 +36,7 @@ public class OCRPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("헌혈증 자동인식");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ocr);
 
@@ -66,7 +66,7 @@ public class OCRPage extends AppCompatActivity {
 
     public void inputOCRData(View view){
         Log.e("OCRPage","" + ocrData);
-        UploadPage.uploadPageBundle.putString("ocrData",ocrData);
+        UploadBill.uploadBillBundle.putString("ocrData",ocrData);
         finish();
     }
 
@@ -130,7 +130,7 @@ public class OCRPage extends AppCompatActivity {
 
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 bitmap = GetRotatedBitmap(bitmap, 90);
-
+                UploadBill.uploadBillBundle.putParcelable("BitmapImage",bitmap);
                 imageView.setImageBitmap(bitmap);
 
                 button.setEnabled(false);
@@ -168,7 +168,7 @@ public class OCRPage extends AppCompatActivity {
         protected void onPostExecute(String result) {
             textView.setText(result);
             ocrData = result;
-            Toast.makeText(OCRPage.this, ""+result, Toast.LENGTH_LONG).show();
+            //Toast.makeText(OCRPage.this, ""+result, Toast.LENGTH_LONG).show();
 
             button.setEnabled(true);
             button.setText("텍스트 인식");

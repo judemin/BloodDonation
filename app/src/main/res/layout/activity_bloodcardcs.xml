@@ -4,11 +4,24 @@
     android:layout_height="match_parent"
     android:background="#ffeeeeee">
 
-<GridView
-    android:id="@+id/gridView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:numColumns="2">
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:numColumns="2">
 
-</GridView>
+    </GridView>
+
+    <Button
+        android:id="@+id/button_billUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="423dp"
+        android:onClick="uploadBill"
+        android:text="헌혈증 업로드" />
 </RelativeLayout>

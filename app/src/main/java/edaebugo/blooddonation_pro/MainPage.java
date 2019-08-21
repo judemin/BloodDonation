@@ -106,11 +106,6 @@ public class MainPage  extends AppCompatActivity implements NavigationView.OnNav
         activityChangeIntent.putExtra("name", name);
         startActivity(activityChangeIntent);
     }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
-    }
 }
 
 
