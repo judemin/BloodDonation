@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class Bloodcardcs extends AppCompatActivity {
     public String userID;
@@ -31,7 +32,7 @@ public class Bloodcardcs extends AppCompatActivity {
     BaseAdapterEx mAdapter = null;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         setTitle("마이페이지");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bloodcardcs);
@@ -49,7 +50,7 @@ public class Bloodcardcs extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume(){
+    public void onResume(){
         super.onResume();
 
         final Context context = this;

@@ -11,15 +11,32 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.app.Fragment;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-public class MainPage  extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainPage  extends AppCompatActivity implements View.OnClickListener   {
     public String id;
     public String name;
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    View.OnClickListener listener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            //this is what runs when you click the button
+        }
+
+    };
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +65,7 @@ public class MainPage  extends AppCompatActivity implements NavigationView.OnNav
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+            drawer.closeDrawers();
         } else {
             super.onBackPressed();
         }
@@ -83,9 +100,12 @@ public class MainPage  extends AppCompatActivity implements NavigationView.OnNav
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        androidx.fragment.app.Fragment fragment = null;
+
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_gallery) {
+            fragment = new Bloodcardcsf();
 
         } else if (id == R.id.nav_slideshow)  {
 
@@ -94,17 +114,35 @@ public class MainPage  extends AppCompatActivity implements NavigationView.OnNav
         } else if (id == R.id.nav_send) {
 
         }
+        if (fragment!=null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.container,fragment);
+            ft.commit();
+        }
+
+        if(getSupportActionBar()!=null){
+            getSupportActionBar().setTitle("Mainpage");
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+
+
     }
+
+
 
     public void uploadPage(View view){
         Intent activityChangeIntent = new Intent(MainPage.this, UploadPage.class);
         activityChangeIntent.putExtra("id", id);
         activityChangeIntent.putExtra("name", name);
         startActivity(activityChangeIntent);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
 
