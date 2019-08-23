@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UploadBillf">
+
+    <TextView
+        android:id="@+id/billid2"
+        android:layout_width="81dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="72dp"
+        android:text="헌혈증ID"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/in_billID"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="65dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        tools:ignore="Autofill,LabelFor" />
+
+    <Button
+        android:id="@+id/ocrStartButton"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="328dp"
+        android:onClick="startOCR"
+        android:text="헌혈증 인식하기" />
+
+    <Button
+        android:id="@+id/uploadButton"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="393dp"
+        android:onClick="uploadBloodBill"
+        android:text="업로드" />
+
+    <ImageView
+        android:id="@+id/ocrImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="119dp"
+        android:maxWidth="270dp"
+        android:maxHeight="150dp"
+        app:srcCompat="@drawable/image"
+        tools:ignore="ContentDescription" />
+
+</FrameLayout>

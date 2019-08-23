@@ -57,6 +57,7 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -101,7 +102,7 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
 
         if (id == R.id.nav_camera) {
             getSupportActionBar().setTitle("헌혈증 등록");
-
+            fragment = new UploadBillf();
         }
         else if (id == R.id.nav_gallery) {
             getSupportActionBar().setTitle("나의 헌혈증");
@@ -156,6 +157,7 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
         emailIntent.setType("message/rfc822");
         startActivity(Intent.createChooser(emailIntent, "Choose an Email client :"));
     }
+
 }
 
 
