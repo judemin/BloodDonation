@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffeeeeee"
-    tools:context=".Bloodcardcsf">
+    tools:context=".seePosting">
 
     <GridView
-        android:id="@+id/fgridView"
+        android:id="@+id/spgridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"

@@ -20,9 +20,7 @@ import java.util.ArrayList;
 
 import androidx.fragment.app.Fragment;
 
-public class Bloodcardcsf extends Fragment {
-    public String userID;
-    public String userName;
+public class seePosting extends Fragment {
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
@@ -31,7 +29,7 @@ public class Bloodcardcsf extends Fragment {
     private GridView mGridView = null;
     private BaseAdapterEx mAdapter = null;
 
-    public Bloodcardcsf(){
+    public seePosting(){
 
     }
 
@@ -40,54 +38,50 @@ public class Bloodcardcsf extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         process();
-        return inflater.inflate(R.layout.fragment_bloodcardcs, container, false);
+        return inflater.inflate(R.layout.fragment_seeposting, container, false);
     }
 
     public void process(){
         final Context context = getActivity();
-        Query myTopPostsQuery = databaseReference.child("billData");
+        Query myTopPostsQuery = databaseReference.child("posting");
         myTopPostsQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 int cnt = 0;
                 ArrayList<Bloodcard> tmpData = new ArrayList<Bloodcard>();
-                Log.e("Bloodcardcsf", "Count " + snapshot.getChildrenCount());
+                Log.e("seePosting", "Count " + snapshot.getChildrenCount());
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    UploadBill.billData post = postSnapshot.getValue(UploadBill.billData.class);
-                    Log.e("Bloodcardcsf","" + post.getUploaderID());
-                    if (userID.equals(post.getUploaderID())) {
-                        Bloodcard bloodcard = new Bloodcard();
-                        bloodcard.mNumber = "BCID " + post.getBillID();
-                        bloodcard.mOrder = "" + (cnt + 1);
-                        tmpData.add(bloodcard);
-                        cnt++;
-                    }
+                    UploadPage.posting post = postSnapshot.getValue(UploadPage.posting.class);
+                    Log.e("seePosting","" + post.getUploader());
+                    Bloodcard bloodcard = new Bloodcard();
+                    bloodcard.mNumber = "" + post.getHead();
+                    bloodcard.mOrder = "" + post.getUploader();
+                    tmpData.add(bloodcard);
+                    cnt++;
                 }
                 if(cnt == 0){
                     Bloodcard bloodcard = new Bloodcard();
-                    bloodcard.mNumber = "헌혈증 정보가 존재하지 않습니다!";
+                    bloodcard.mNumber = "요청글이 존재하지 않습니다!";
                     bloodcard.mOrder = "0";
                     //Log.e("Bloodcardcs","" + bloodcard.mNumber);
                     //Log.e("Bloodcardcs","" + bloodcard.mOrder);
                     tmpData.add(bloodcard);
                 }
-                Log.e("Bloodcardcsf","tmpData " + tmpData.size());
-                Log.e("Bloodcardcsf","" + userID + " " + cnt);
+                Log.e("seePosting","tmpData " + tmpData.size());
 
                 mAdapter = new BaseAdapterEx(context, tmpData);
-                if(getView().findViewById(R.id.fgridView) != null) {
-                    mGridView = (GridView) getView().findViewById(R.id.fgridView);
+                if(getView().findViewById(R.id.spgridview) != null) {
+                    mGridView = (GridView) getView().findViewById(R.id.spgridview);
                     mGridView.setAdapter(mAdapter);
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e("Bloodcardcsf","" + databaseError.toString());
+                Log.e("seePosting","" + databaseError.toString());
                 Toast.makeText(getContext().getApplicationContext(), "네트워크를 확인해주세요", Toast.LENGTH_LONG).show();
             }
         });
     }
 }
-

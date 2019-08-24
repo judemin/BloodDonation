@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,7 @@
     tools:context=".UploadBillf">
 
     <TextView
-        android:id="@+id/billid2"
+        android:id="@+id/billid"
         android:layout_width="81dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
@@ -18,7 +18,7 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/in_billID"
+        android:id="@+id/in_f_billID"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="97dp"
@@ -29,25 +29,23 @@
         tools:ignore="Autofill,LabelFor" />
 
     <Button
-        android:id="@+id/ocrStartButton"
+        android:id="@+id/focrStartButton"
         android:layout_width="214dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="78dp"
         android:layout_marginTop="328dp"
-        android:onClick="startOCR"
         android:text="헌혈증 인식하기" />
 
     <Button
-        android:id="@+id/uploadButton"
+        android:id="@+id/fuploadButton"
         android:layout_width="215dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="393dp"
-        android:onClick="uploadBloodBill"
         android:text="업로드" />
 
     <ImageView
-        android:id="@+id/ocrImage"
+        android:id="@+id/focrImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="119dp"
@@ -56,4 +54,4 @@
         app:srcCompat="@drawable/image"
         tools:ignore="ContentDescription" />
 
-</FrameLayout>
+</RelativeLayout>

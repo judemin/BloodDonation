@@ -6,9 +6,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +23,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainPage  extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener  {
+
+    ArrayList<Bloodcard> mData = new ArrayList<Bloodcard>();
+    private GridView mGridView = null;
+    private BaseAdapterEx mAdapter = null;
+
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = firebaseDatabase.getReference();
+
     public String userID;
     public String name;
     androidx.fragment.app.Fragment fragment = null;
@@ -58,6 +71,10 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        fragment = new seePosting();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_fragment_layout,fragment);
+        ft.commit();
     }
 
     @Override
@@ -103,6 +120,8 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
         if (id == R.id.nav_camera) {
             getSupportActionBar().setTitle("헌혈증 등록");
             fragment = new UploadBillf();
+            ((UploadBillf) fragment).userID = userID;
+            ((UploadBillf) fragment).userName = name;
         }
         else if (id == R.id.nav_gallery) {
             getSupportActionBar().setTitle("나의 헌혈증");
@@ -135,8 +154,6 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
 
     }
 
-
-
     public void uploadPage(View view){
         Intent activityChangeIntent = new Intent(MainPage.this, UploadPage.class);
         activityChangeIntent.putExtra("id", userID);
@@ -148,6 +165,7 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v) {
 
     }
+
 
     public void sendEmail(){
         Intent emailIntent = new Intent(Intent.ACTION_SEND);

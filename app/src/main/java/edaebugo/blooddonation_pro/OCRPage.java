@@ -66,7 +66,7 @@ public class OCRPage extends AppCompatActivity {
 
     public void inputOCRData(View view){
         Log.e("OCRPage","" + ocrData);
-        UploadBill.uploadBillBundle.putString("ocrData",ocrData);
+        UploadBillf.fuploadBillBundle.putString("ocrData",ocrData);
         finish();
     }
 
@@ -130,7 +130,7 @@ public class OCRPage extends AppCompatActivity {
 
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 bitmap = GetRotatedBitmap(bitmap, 90);
-                UploadBill.uploadBillBundle.putParcelable("BitmapImage",bitmap);
+                UploadBillf.fuploadBillBundle.putParcelable("BitmapImage",bitmap);
                 imageView.setImageBitmap(bitmap);
 
                 button.setEnabled(false);
