@@ -28,8 +28,8 @@ public class Bloodcardcsf extends Fragment {
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
 
     ArrayList<Bloodcard> mData = new ArrayList<Bloodcard>();
-    GridView mGridView = null;
-    BaseAdapterEx mAdapter = null;
+    private GridView mGridView = null;
+    private BaseAdapterEx mAdapter = null;
 
     public Bloodcardcsf(){
 
