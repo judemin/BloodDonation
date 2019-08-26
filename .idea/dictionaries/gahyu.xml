@@ -2,6 +2,8 @@
   <dictionary name="gahyu">
     <words>
       <w>bitmapimage</w>
+      <w>phonenum</w>
+      <w>phonenumber</w>
     </words>
   </dictionary>
 </component>

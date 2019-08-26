@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.regex.Pattern;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -127,8 +128,10 @@ public class SignupActivity extends AppCompatActivity {
                         Intent activityChangeIntent = new Intent(SignupActivity.this, MainPage.class);
                         activityChangeIntent.putExtra("id", post.getId());
                         activityChangeIntent.putExtra("name", post.getName());
+                        activityChangeIntent.putExtra("phoneNumber",post.getPhoneNumber());
+                        activityChangeIntent.putExtra("bloodType",post.getBloodType());
+                        activityChangeIntent.putExtra("ryType", post.getRhType());
                         startActivity(activityChangeIntent);
-                        finish();
                         return;
                     }
                 }
@@ -143,4 +146,5 @@ public class SignupActivity extends AppCompatActivity {
         });
         isLogin = false;
     }
+
 }
