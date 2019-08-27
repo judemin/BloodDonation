@@ -7,9 +7,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +35,9 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
 
     public String userID;
     public String name;
+    public String phonenumber;
+    public String bloodType;
+    public String rhType;
     androidx.fragment.app.Fragment fragment = null;
 
     @Override
@@ -55,6 +60,10 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
         Intent myIntent = getIntent();
         userID = myIntent.getStringExtra("id");
         name = myIntent.getStringExtra("name");
+        phonenumber = myIntent.getStringExtra("phoneNumber");
+        bloodType = myIntent.getStringExtra("bloodType");
+        rhType = myIntent.getStringExtra("ryType");
+
         Toast.makeText(getApplicationContext(),"환영합니다 " + name + "님",Toast.LENGTH_LONG).show();
 
         //Navigation Drawer Activity
@@ -135,10 +144,24 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
         }
         else if (id == R.id.nav_share) {
             getSupportActionBar().setTitle("나의 정보");
+            fragment = new seeMyInfo();
+            ((seeMyInfo) fragment).id = userID;
+            ((seeMyInfo) fragment).name = name;
+            ((seeMyInfo) fragment).phoneNumber = phonenumber;
+            ((seeMyInfo) fragment).bloodType = bloodType;
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_fragment_layout,fragment);
+            ft.commit();
 
         }
         else if (id == R.id.nav_send) {
             sendEmail();
+        }
+
+        else if (id == R.id.nav_logout){
+            Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
 
         if (fragment!=null) {
@@ -160,6 +183,7 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
         activityChangeIntent.putExtra("name", name);
         startActivity(activityChangeIntent);
     }
+
 
     @Override
     public void onClick(View v) {

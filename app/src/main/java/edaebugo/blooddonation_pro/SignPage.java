@@ -22,6 +22,7 @@ import java.util.Random;
 
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class SignPage extends AppCompatActivity {
     boolean isProcess = false;
