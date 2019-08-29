@@ -21,6 +21,7 @@ public class UploadPage extends AppCompatActivity {
 
     private static  String head;
     private String message;
+    private String url;
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
@@ -43,6 +44,7 @@ public class UploadPage extends AppCompatActivity {
 
         head = ((TextView)findViewById(R.id.in_head)).getText().toString();
         message = ((TextView)findViewById(R.id.in_message)).getText().toString();
+        url = ((TextView)findViewById(R.id.in_url)).getText().toString();
 
         if(isEmpty() == true){
             Toast.makeText(getApplicationContext(), "정보를 모두 입력해주세요", Toast.LENGTH_LONG).show();
@@ -50,7 +52,7 @@ public class UploadPage extends AppCompatActivity {
             return;
         }
 
-        posting tmpUserdata = new posting(userID, userName, message, head);
+        posting tmpUserdata = new posting(userID, userName, message, head, url);
         databaseReference.child("posting").push().setValue(tmpUserdata);
         finish();
     }
@@ -59,6 +61,8 @@ public class UploadPage extends AppCompatActivity {
         if(head.isEmpty())
             return true;
         else if(message.isEmpty())
+            return true;
+        else if(url.isEmpty())
             return true;
 
         return false;
@@ -70,17 +74,19 @@ public class UploadPage extends AppCompatActivity {
         private String uploader; // 업로더 이름
         private String head; // 게시글 제목
         private String message;
+        public String url;
 
         public posting(){}
 
-        public posting(String id,String name,String msg,String tmHead){
+        public posting(String id,String name,String msg,String tmHead, String turl){
             uploaderID = id;
             uploader = name;
             head = tmHead;
             message = msg;
+            turl = url;
         }
 
-        public String getID(){
+        public String getUploaderID(){
             return uploaderID;
         }
 
@@ -95,6 +101,8 @@ public class UploadPage extends AppCompatActivity {
         public String getMessage(){
             return message;
         }
+
+        public String getUrl(){ return url; }
 
         public boolean isValidBill(){
             return isValid;

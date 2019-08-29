@@ -3,7 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#FFFFFF"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/message4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="362dp"
+        android:text="양도받을때 사용할 오픈채팅이나 기타 연락수단을 입력해주세요"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="9sp" />
+
+    <TextView
+        android:id="@+id/message3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="316dp"
+        android:text="오픈채팅주소"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/in_url"
+        android:layout_width="226dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="309dp"
+        android:ems="10"
+        android:hint="https://open.kakao.com/"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="false"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/message2"
@@ -11,8 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="153dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="144dp"
         android:text="내용"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -25,9 +66,19 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="103dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="137dp"
+        android:background="@drawable/edittext_edge"
         android:ems="10"
-        android:inputType="textEmailAddress"
+        android:fadeScrollbars="false"
+        android:inputType="none"
+        android:maxWidth="226dp"
+        android:maxHeight="160dp"
+        android:minWidth="226dp"
+        android:minHeight="160dp"
+        android:nestedScrollingEnabled="true"
+        android:scrollHorizontally="false"
+        android:selectAllOnFocus="false"
+        android:singleLine="false"
         android:textSize="14sp" />
 
     <TextView
@@ -53,6 +104,7 @@
         android:layout_marginTop="90dp"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:selectAllOnFocus="false"
         android:textSize="14sp" />
 
     <Button
@@ -61,8 +113,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="306dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="399dp"
         android:onClick="upload"
         android:text="업로드" />
 

@@ -7,11 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -86,6 +84,18 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
         ft.commit();
     }
 
+    public void toSeePosting(View view){
+        getSupportActionBar().setTitle("BloodDonation_pro");
+        fragment = new seePosting();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_fragment_layout,fragment);
+        ft.commit();
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return;
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -140,7 +150,9 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
         }
         else if (id == R.id.nav_slideshow)  {
             getSupportActionBar().setTitle("나의 작성글");
-
+            fragment = new seePosting();
+            ((seePosting) fragment).isMine = true;
+            ((seePosting) fragment).userID = userID;
         }
         else if (id == R.id.nav_share) {
             getSupportActionBar().setTitle("나의 정보");
