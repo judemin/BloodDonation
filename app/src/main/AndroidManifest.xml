@@ -37,6 +37,7 @@
         <activity android:name=".OCRPage"/>
         <activity android:name=".SignPage"/>
         <activity android:name=".MainPage"/>
+        <activity android:name=".detailPosting"/>
         <activity android:name=".SignupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

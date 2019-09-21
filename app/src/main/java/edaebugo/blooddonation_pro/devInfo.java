@@ -18,7 +18,7 @@ public class devInfo extends AppCompatActivity {
 
         String string = "";
         TextView tv = findViewById(R.id.devin);
-        string = "BloodDonation_project\n" +
+        string = "BloodLinker\n" +
                 "by E-PPT (EWUHS - Project & Programming Team)\n\n" +
                 "Devs : \n" +
                 "이대부속고등학교 31108 민상연 \n" +
@@ -27,6 +27,8 @@ public class devInfo extends AppCompatActivity {
                 "이대부속고등학교 20620 이유진 \n" +
                 "이대부속고등학교 21134 홍윤걸 \n" +
                 "이대부속고등학교 10622 이혜정 \n" +
+                "Special Thanks : \n" +
+                "이대부속고등학교 31101 권민주 \n" +
                 "Github : https://github.com/judemin/BloodDonation";
         tv.setText(string);
     }

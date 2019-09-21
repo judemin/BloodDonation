@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BloodDonation_pro</string>
+    <string name="app_name">BloodLinker</string>
 
     <string name="email">이메일</string>
     <string name="password">비밀번호</string>

@@ -9,6 +9,8 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Random;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class UploadPage extends AppCompatActivity {
@@ -70,6 +72,7 @@ public class UploadPage extends AppCompatActivity {
 
     public static class posting{
         private boolean isValid = true;
+        private String postID;
         private String uploaderID;
         private String uploader; // 업로더 이름
         private String head; // 게시글 제목
@@ -79,6 +82,8 @@ public class UploadPage extends AppCompatActivity {
         public posting(){}
 
         public posting(String id,String name,String msg,String tmHead, String turl){
+            Random generator = new Random();
+            postID = "" + generator.nextInt() * generator.nextFloat();
             uploaderID = id;
             uploader = name;
             head = tmHead;
@@ -101,6 +106,8 @@ public class UploadPage extends AppCompatActivity {
         public String getMessage(){
             return message;
         }
+
+        public String getPostID(){ return postID; }
 
         public String getUrl(){ return url; }
 

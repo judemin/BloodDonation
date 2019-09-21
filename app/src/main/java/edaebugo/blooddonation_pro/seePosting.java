@@ -1,11 +1,13 @@
 package edaebugo.blooddonation_pro;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -63,6 +65,11 @@ public class seePosting extends Fragment {
                     Bloodcard bloodcard = new Bloodcard();
                     bloodcard.mNumber = "" + post.getHead();
                     bloodcard.mOrder = "" + post.getUploader();
+
+                    bloodcard.postingContent = "" + post.getMessage();
+                    bloodcard.postingUrl = "" + post.getUrl();
+                    bloodcard.postingid = "" + post.getPostID();
+                    bloodcard.uploaderid = "" + post.getUploaderID();
                     tmpData.add(bloodcard);
                     cnt++;
                 }
@@ -80,6 +87,23 @@ public class seePosting extends Fragment {
                 if(getView().findViewById(R.id.spgridview) != null) {
                     mGridView = (GridView) getView().findViewById(R.id.spgridview);
                     mGridView.setAdapter(mAdapter);
+                    //
+                    mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Bloodcard bloodcard = (Bloodcard) mGridView.getAdapter().getItem(position);
+                            Intent activityChangeIntent = new Intent(getActivity(), detailPosting.class);
+                            activityChangeIntent.putExtra("upid", bloodcard.uploaderid);
+                            activityChangeIntent.putExtra("id", userID);
+                            activityChangeIntent.putExtra("postid", bloodcard.postingid);
+                            activityChangeIntent.putExtra("head", bloodcard.mNumber);
+                            activityChangeIntent.putExtra("uploader", bloodcard.mOrder);
+                            activityChangeIntent.putExtra("content", bloodcard.postingContent);
+                            activityChangeIntent.putExtra("url", bloodcard.postingUrl);
+                            startActivity(activityChangeIntent);
+                        }
+                    });
+                    //
                 }
             }
 
@@ -107,7 +131,12 @@ public class seePosting extends Fragment {
                     if(userID.equals(post.getUploaderID())) {
                         Bloodcard bloodcard = new Bloodcard();
                         bloodcard.mNumber = "" + post.getHead();
-                        bloodcard.mOrder = "" + (cnt + 1);
+                        bloodcard.mOrder = "" + post.getUploader();
+
+                        bloodcard.postingContent = "" + post.getMessage();
+                        bloodcard.postingUrl = "" + post.getUrl();
+                        bloodcard.postingid = "" + post.getPostID();
+                        bloodcard.uploaderid = "" + post.getUploaderID();
                         tmpData.add(bloodcard);
                         cnt++;
                     }
@@ -126,6 +155,23 @@ public class seePosting extends Fragment {
                 if(getView().findViewById(R.id.spgridview) != null) {
                     mGridView = (GridView) getView().findViewById(R.id.spgridview);
                     mGridView.setAdapter(mAdapter);
+                    //
+                    mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Bloodcard bloodcard = (Bloodcard) mGridView.getAdapter().getItem(position);
+                            Intent activityChangeIntent = new Intent(getActivity(), detailPosting.class);
+                            activityChangeIntent.putExtra("upid", bloodcard.uploaderid);
+                            activityChangeIntent.putExtra("id", userID);
+                            activityChangeIntent.putExtra("postid", bloodcard.postingid);
+                            activityChangeIntent.putExtra("head", bloodcard.mNumber);
+                            activityChangeIntent.putExtra("uploader", bloodcard.mOrder);
+                            activityChangeIntent.putExtra("content", bloodcard.postingContent);
+                            activityChangeIntent.putExtra("url", bloodcard.postingUrl);
+                            startActivity(activityChangeIntent);
+                        }
+                    });
+                    //
                 }
             }
 

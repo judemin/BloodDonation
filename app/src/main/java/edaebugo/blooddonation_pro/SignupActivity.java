@@ -19,7 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.regex.Pattern;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -132,7 +131,7 @@ public class SignupActivity extends AppCompatActivity {
                         activityChangeIntent.putExtra("bloodType",post.getBloodType());
                         activityChangeIntent.putExtra("ryType", post.getRhType());
                         startActivity(activityChangeIntent);
-                        return;
+                        finish();
                     }
                 }
                 Toast.makeText(getApplicationContext(), "이메일과 비밀번호를 확인하세요", Toast.LENGTH_LONG).show();

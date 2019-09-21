@@ -80,15 +80,17 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
 
         fragment = new seePosting();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ((seePosting) fragment).userID = userID;
         ft.replace(R.id.content_fragment_layout,fragment);
         ft.commit();
     }
 
     public void toSeePosting(View view){
-        getSupportActionBar().setTitle("BloodDonation_pro");
+        getSupportActionBar().setTitle("BloodLinker");
         fragment = new seePosting();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_fragment_layout,fragment);
+        ((seePosting) fragment).userID = userID;
         ft.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -174,6 +176,7 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
             Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            finish();
         }
 
         if (fragment!=null) {
@@ -206,7 +209,7 @@ public class MainPage  extends AppCompatActivity implements View.OnClickListener
     public void sendEmail(){
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"judemin2087@naver.com"});
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "BloodDonation_project 건의하기");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "BloodLinker 건의하기");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "");
         emailIntent.setType("message/rfc822");
         startActivity(Intent.createChooser(emailIntent, "Choose an Email client :"));

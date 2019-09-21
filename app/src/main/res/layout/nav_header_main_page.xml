@@ -22,17 +22,19 @@
         app:srcCompat="@mipmap/ic_launcher_round" />
 
     <TextView
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:id="@+id/username"
-        android:text=""
+        android:text="메인페이지"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/userid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:autoLink="web"
+        android:text="https://open.kakao.com/o/gDDs88Eb 11199"
+        android:textColorLink="@color/design_default_color_primary" />
 
 </LinearLayout>
