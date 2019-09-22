@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class UploadPage extends AppCompatActivity {
 
-
     private boolean isProcess = false;
 
     public String userID;
@@ -55,7 +54,7 @@ public class UploadPage extends AppCompatActivity {
         }
 
         posting tmpUserdata = new posting(userID, userName, message, head, url);
-        databaseReference.child("posting").push().setValue(tmpUserdata);
+        databaseReference.child("posting").child(tmpUserdata.getPostID()).setValue(tmpUserdata);
         finish();
     }
 
@@ -77,18 +76,23 @@ public class UploadPage extends AppCompatActivity {
         private String uploader; // 업로더 이름
         private String head; // 게시글 제목
         private String message;
-        public String url;
+        private String url;
+        private int lookCnt;
 
         public posting(){}
 
         public posting(String id,String name,String msg,String tmHead, String turl){
             Random generator = new Random();
-            postID = "" + generator.nextInt() * generator.nextFloat();
+            String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            postID = "" + alphabet.charAt(generator.nextInt(26))+ alphabet.charAt(generator.nextInt(26))
+                    + alphabet.charAt(generator.nextInt(26)) + generator.nextInt() * generator.nextInt() * generator.nextInt();
+
             uploaderID = id;
             uploader = name;
             head = tmHead;
             message = msg;
-            turl = url;
+            url = turl;
+            lookCnt = 0;
         }
 
         public String getUploaderID(){
@@ -110,6 +114,8 @@ public class UploadPage extends AppCompatActivity {
         public String getPostID(){ return postID; }
 
         public String getUrl(){ return url; }
+
+        public int getLookCnt(){return lookCnt;}
 
         public boolean isValidBill(){
             return isValid;

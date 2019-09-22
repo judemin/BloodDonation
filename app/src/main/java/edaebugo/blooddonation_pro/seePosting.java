@@ -88,21 +88,24 @@ public class seePosting extends Fragment {
                     mGridView = (GridView) getView().findViewById(R.id.spgridview);
                     mGridView.setAdapter(mAdapter);
                     //
-                    mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Bloodcard bloodcard = (Bloodcard) mGridView.getAdapter().getItem(position);
-                            Intent activityChangeIntent = new Intent(getActivity(), detailPosting.class);
-                            activityChangeIntent.putExtra("upid", bloodcard.uploaderid);
-                            activityChangeIntent.putExtra("id", userID);
-                            activityChangeIntent.putExtra("postid", bloodcard.postingid);
-                            activityChangeIntent.putExtra("head", bloodcard.mNumber);
-                            activityChangeIntent.putExtra("uploader", bloodcard.mOrder);
-                            activityChangeIntent.putExtra("content", bloodcard.postingContent);
-                            activityChangeIntent.putExtra("url", bloodcard.postingUrl);
-                            startActivity(activityChangeIntent);
-                        }
-                    });
+                    if (cnt != 0) {
+                        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Log.e("seePosting","" + id + " " + position + " " + view.getTransitionName());
+                                Bloodcard bloodcard = (Bloodcard) mGridView.getAdapter().getItem(position);
+                                Intent activityChangeIntent = new Intent(getActivity(), detailPosting.class);
+                                activityChangeIntent.putExtra("upid", bloodcard.uploaderid);
+                                activityChangeIntent.putExtra("id", userID);
+                                activityChangeIntent.putExtra("postid", bloodcard.postingid);
+                                activityChangeIntent.putExtra("head", bloodcard.mNumber);
+                                activityChangeIntent.putExtra("uploader", bloodcard.mOrder);
+                                activityChangeIntent.putExtra("content", bloodcard.postingContent);
+                                activityChangeIntent.putExtra("url", bloodcard.postingUrl);
+                                startActivity(activityChangeIntent);
+                            }
+                        });
+                    }
                     //
                 }
             }
@@ -143,7 +146,7 @@ public class seePosting extends Fragment {
                 }
                 if(cnt == 0){
                     Bloodcard bloodcard = new Bloodcard();
-                    bloodcard.mNumber = "요청글이 존재하지 않습니다!";
+                    bloodcard.mNumber = "작성글이 존재하지 않습니다!";
                     bloodcard.mOrder = "0";
                     //Log.e("Bloodcardcs","" + bloodcard.mNumber);
                     //Log.e("Bloodcardcs","" + bloodcard.mOrder);
@@ -156,21 +159,23 @@ public class seePosting extends Fragment {
                     mGridView = (GridView) getView().findViewById(R.id.spgridview);
                     mGridView.setAdapter(mAdapter);
                     //
-                    mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Bloodcard bloodcard = (Bloodcard) mGridView.getAdapter().getItem(position);
-                            Intent activityChangeIntent = new Intent(getActivity(), detailPosting.class);
-                            activityChangeIntent.putExtra("upid", bloodcard.uploaderid);
-                            activityChangeIntent.putExtra("id", userID);
-                            activityChangeIntent.putExtra("postid", bloodcard.postingid);
-                            activityChangeIntent.putExtra("head", bloodcard.mNumber);
-                            activityChangeIntent.putExtra("uploader", bloodcard.mOrder);
-                            activityChangeIntent.putExtra("content", bloodcard.postingContent);
-                            activityChangeIntent.putExtra("url", bloodcard.postingUrl);
-                            startActivity(activityChangeIntent);
-                        }
-                    });
+                    if (cnt != 0) {
+                        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Bloodcard bloodcard = (Bloodcard) mGridView.getAdapter().getItem(position);
+                                Intent activityChangeIntent = new Intent(getActivity(), detailPosting.class);
+                                activityChangeIntent.putExtra("upid", bloodcard.uploaderid);
+                                activityChangeIntent.putExtra("id", userID);
+                                activityChangeIntent.putExtra("postid", bloodcard.postingid);
+                                activityChangeIntent.putExtra("head", bloodcard.mNumber);
+                                activityChangeIntent.putExtra("uploader", bloodcard.mOrder);
+                                activityChangeIntent.putExtra("content", bloodcard.postingContent);
+                                activityChangeIntent.putExtra("url", bloodcard.postingUrl);
+                                startActivity(activityChangeIntent);
+                            }
+                        });
+                    }
                     //
                 }
             }

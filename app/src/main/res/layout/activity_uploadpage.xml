@@ -76,9 +76,11 @@
         android:minWidth="226dp"
         android:minHeight="160dp"
         android:nestedScrollingEnabled="true"
+        android:padding="5dp"
         android:scrollHorizontally="false"
         android:selectAllOnFocus="false"
         android:singleLine="false"
+        android:textAlignment="textStart"
         android:textSize="14sp" />
 
     <TextView

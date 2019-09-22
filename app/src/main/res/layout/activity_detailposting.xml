@@ -7,12 +7,76 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/head"
+        android:layout_width="258dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="143dp"
-        android:layout_marginTop="78dp"
-        android:text="TextView" />
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="77dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/postingCont"
+        android:layout_width="262dp"
+        android:layout_height="216dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="138dp"
+        android:background="@drawable/edittext_edge"
+        android:padding="5dp"
+        android:text="TextView"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/url"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="364dp"
+        android:autoLink="web|email|phone|map|all"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColorLink="@color/colorPrimary"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/uploader"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="227dp"
+        android:layout_marginTop="499dp"
+        android:text="TextView"
+        android:textAlignment="textEnd" />
+
+    <TextView
+        android:id="@+id/lookCnt"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="227dp"
+        android:layout_marginTop="525dp"
+        android:text="TextView"
+        android:textAlignment="textEnd" />
+
+    <Button
+        android:id="@+id/deleteBtn"
+        android:layout_width="71dp"
+        android:layout_height="38dp"
+        android:layout_alignBottom="@+id/uploader"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="-32dp"
+        android:text="삭제"
+        android:textSize="10sp" />
 </RelativeLayout>

@@ -31,10 +31,11 @@
 
     <TextView
         android:id="@+id/userid"
-        android:layout_width="wrap_content"
+        android:layout_width="326dp"
         android:layout_height="wrap_content"
         android:autoLink="web"
         android:text="https://open.kakao.com/o/gDDs88Eb 11199"
-        android:textColorLink="@color/design_default_color_primary" />
+        android:textColorLink="@color/design_default_color_primary"
+        android:textSize="10sp" />
 
 </LinearLayout>
